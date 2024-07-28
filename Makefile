@@ -6,7 +6,7 @@
 #    By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/28 13:38:21 by dpaluszk          #+#    #+#              #
-#    Updated: 2024/07/28 15:24:22 by dpaluszk         ###   ########.fr        #
+#    Updated: 2024/07/28 22:06:05 by dpaluszk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,13 @@ LIBFT = $(LIBFT_DIR)/libft.a
 GET_NEXT_LINE = $(GET_NEXT_LINE_DIR)/get_next_line.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-MLX = ./MLX42
-MLX_URL = https://github.com/codam-coding-college/MLX42
+MLX = MLX42/build/libmlx42.a
 
 all: $(NAME)
 
 $(MLX):
-	if [ ! -d "$(MLX)" ]; then git clone $(MLX_URL) $(MLX); fi
-	cd $(MLX) && cmake -B build && cmake --build build -j4
+	@git clone https://github.com/codam-coding-college/MLX42.git
+	@cd MLX42 && cmake -B build && cmake --build build -j4
 
 $(PRINTF):
 	make -C $(PRINTF_DIR)
@@ -42,17 +41,18 @@ $(LIBFT):
 $(GET_NEXT_LINE):
 	make -C $(GET_NEXT_LINE_DIR)
 
-$(NAME): $(OBJECTS) $(GET_NEXT_LINE) $(PRINTF) $(MLX)
-	$(CC) $(FLAGS) $(OBJECTS) -o $(NAME) -L$(LIBFT_DIR) -L$(GET_NEXT_LINE_DIR) -L$(PRINTF_DIR) -L$(MLX)
+$(NAME): $(MLX) $(OBJECTS) $(LIBFT) $(PRINTF) $(GET_NEXT_LINE)
+	$(CC)  $(FLAGS) $(OBJECTS) $(LIBFT) $(PRINTF) $(GET_NEXT_LINE) $(MLX) -o $(NAME) -ldl -lglfw -lm -g
 
 %.o: %.c so_long.h
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -Imlx -c $< -o $@
 
 clean:
 	rm -rf $(OBJECTS)
 	make clean -C $(PRINTF_DIR)
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(GET_NEXT_LINE_DIR)
+	rm -rf MLX42
 
 fclean:	clean
 	rm -rf $(NAME) $(MLX)
