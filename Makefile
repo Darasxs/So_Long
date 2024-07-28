@@ -6,7 +6,7 @@
 #    By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/28 13:38:21 by dpaluszk          #+#    #+#              #
-#    Updated: 2024/07/28 14:45:41 by dpaluszk         ###   ########.fr        #
+#    Updated: 2024/07/28 15:24:22 by dpaluszk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,15 @@ SRC = so_long.c
 OBJECTS = $(SRC:.c=.o)
 FLAGS = -Wall -Wextra -Werror
 CC = cc
-LIBFT_DIR = libft
+
 GET_NEXT_LINE_DIR = get_next_line
-PRINTF_DIR = printf
+PRINTF_DIR = ft_printf
+LIBFT_DIR = libft
+
 LIBFT = $(LIBFT_DIR)/libft.a
 GET_NEXT_LINE = $(GET_NEXT_LINE_DIR)/get_next_line.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
+
 MLX = ./MLX42
 MLX_URL = https://github.com/codam-coding-college/MLX42
 
@@ -40,7 +43,7 @@ $(GET_NEXT_LINE):
 	make -C $(GET_NEXT_LINE_DIR)
 
 $(NAME): $(OBJECTS) $(GET_NEXT_LINE) $(PRINTF) $(MLX)
-	$(CC) $(FLAGS) $(OBJECTS) -o $(NAME) -L$(LIBFT_DIR) -lft -L$(GET_NEXT_LINE_DIR) -lgnl -L$(PRINTF_DIR) -lftprintf -L$(MLX) -lmlx42
+	$(CC) $(FLAGS) $(OBJECTS) -o $(NAME) -L$(LIBFT_DIR) -L$(GET_NEXT_LINE_DIR) -L$(PRINTF_DIR) -L$(MLX)
 
 %.o: %.c so_long.h
 	$(CC) $(FLAGS) -c $< -o $@
@@ -59,4 +62,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re mlx

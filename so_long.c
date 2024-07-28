@@ -6,9 +6,14 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/28 13:48:19 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/28 15:23:47 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	main(void)
+{
+	write(1, "1", 1);
+	return (0);
+}
