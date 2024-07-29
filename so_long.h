@@ -6,12 +6,15 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/28 21:52:17 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/29 10:49:27 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+#define WIDTH 1920
+#define HEIGHT 1080
 
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
