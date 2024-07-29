@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/29 14:44:55 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/29 19:56:52 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,33 @@ void	error(void)
 	exit(EXIT_FAILURE);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	(void)argv;
+	if(argc == 2)
+	{	
+		mlx_t			*mlx;
+		mlx_texture_t	*texture;
+		mlx_image_t		*img;
+		mlx = mlx_init(WIDTH, HEIGHT, "MLX42", false);
+		if (!mlx)
+			error();
+		texture = mlx_load_png("./images/background.png");
+		if(!texture)
+			error();
+		img = mlx_texture_to_image(mlx, texture);
+		if (!img)
+			error();
+		if (mlx_image_to_window(mlx, img, 0, 0) < 0)
+			error();
+		mlx_loop(mlx);
+		mlx_delete_image(mlx, img);
+		mlx_delete_texture(texture);
+		mlx_terminate(mlx);
+	}
+	return (0);
+}
+
 	// czy ja musze uzyc tego? bo okno laduje bez tej funkcji:
 	//		void *mlx_window;
 	//		mlx_window = mlx_new_image(mlx, WIDTH, HEIGHT)
-
-	mlx_t			*mlx;
-	mlx_texture_t	*texture;
-	mlx_image_t		*img;
-
-	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", false);
-	if (!mlx)
-		error();
-	texture = mlx_load_png("./images/background.png");
-	if(!texture)
-		error();
-	img = mlx_texture_to_image(mlx, texture);
-	if (!img)
-		error();
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
-		error();
-	mlx_loop(mlx);
-
-	mlx_delete_image(mlx, img);
-	mlx_delete_texture(texture);
-	mlx_terminate(mlx);
-	return (0);
-}
