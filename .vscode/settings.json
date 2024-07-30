@@ -4,6 +4,7 @@
 		"so_long.h": "c",
 		"stdlib.h": "c",
 		"get_next_line.h": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"libft.h": "c"
 	}
 }

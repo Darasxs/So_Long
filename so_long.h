@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/29 20:05:23 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:24:45 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 
 #define WIDTH 1920
 #define HEIGHT 1080
-
-typedef struct mlx_game_s
-{
-	mlx_t	*mlx
-	int		count_moves;
-}				mlx_game_t;
-
-void	error(void);
-
-
 
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
@@ -35,6 +25,14 @@ void	error(void);
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+
+typedef	struct	s_game
+{
+	mlx_t	*mlx;
+	char	**map;
+	int		move_count;
+}				t_game;
 
 void	error(void);
 

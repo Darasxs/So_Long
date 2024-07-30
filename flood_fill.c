@@ -6,13 +6,8 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 19:59:47 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/29 20:06:15 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/30 10:44:20 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	flood_fill(mlx_game_t *map, int x, int y, char c)
-{
-	
-}
