@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/31 13:22:51 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:12:36 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ bool	length_check(char *line, size_t first_line)
 		len -= 1;
 	if (first_line != len)
 		return (false);
-
 	return (true);
 }
 
@@ -64,21 +63,53 @@ void	read_map(char *map, t_game *game)
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		tmp = ft_strjoin(all_lines, line);
-		if(!(length_check(line, line_len)))
+		if (!(length_check(line, line_len)))
 			error();
 		free(all_lines);
 		free(line);
 		all_lines = tmp;
 	}
-	printf("%s", all_lines);
 	close(fd);
+	game->map = ft_split(all_lines, '\n');
 	// remember to free all_lines later
 }
-
-// bool	map_validation(t_game *game, char *map)
+//bool	map_validation(t_game *game)
 //{
-
+	
 //}
+
+bool	check_wall_around(t_game *game)
+{
+	size_t	i;
+	size_t	j;
+	size_t	len;
+
+	i = 0;
+	j = 0;
+	len = ft_strlen(game->map[i]);
+	while (game->map[0][j])
+	{
+		if (game->map[0][j] != '1')
+			return (false);
+		j++;
+	}
+	j = 0;
+	while (game->map[i][j])
+	{
+		if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
+			return (false);
+		i++;
+	}
+	j = 0;
+	i--;
+	while (game->map[i][j])
+	{
+		if (game->map[i][j] != '1')
+			return (false);
+		j++;
+	}
+	return (true);
+}
 
 // void	open_window(void)
 //{
@@ -95,7 +126,8 @@ int	main(int argc, char **argv)
 		game = ft_calloc(sizeof(t_game), 1);
 		struct_init_function(game);
 		read_map(argv[1], game);
-		// map_validation(game, argv[1]);
+		check_wall_around(game);
+		//map_validation(game);
 	}
 	// mlx_loop(mlx);
 	// mlx_terminate(mlx);
