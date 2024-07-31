@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/30 16:24:45 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:33:56 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@
 typedef	struct	s_game
 {
 	mlx_t	*mlx;
-	char	**map;
+	char	*map;
 	int		move_count;
 }				t_game;
 
 void	error(void);
+void	read_map(char *map, t_game *game);
 
 #endif
