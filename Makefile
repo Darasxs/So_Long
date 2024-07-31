@@ -6,14 +6,14 @@
 #    By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/28 13:38:21 by dpaluszk          #+#    #+#              #
-#    Updated: 2024/07/29 19:14:39 by dpaluszk         ###   ########.fr        #
+#    Updated: 2024/07/31 16:10:02 by dpaluszk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 SRC = so_long.c flood_fill.c
 OBJECTS = $(SRC:.c=.o)
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 CC = cc
 
 GET_NEXT_LINE_DIR = get_next_line

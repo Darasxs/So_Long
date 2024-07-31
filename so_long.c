@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/31 15:12:36 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/07/31 17:11:32 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	read_map(char *map, t_game *game)
 	size_t	line_len;
 
 	tmp = NULL;
-	game = NULL;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
@@ -70,6 +69,7 @@ void	read_map(char *map, t_game *game)
 		all_lines = tmp;
 	}
 	close(fd);
+	//ft_printf("%s", all_lines);
 	game->map = ft_split(all_lines, '\n');
 	// remember to free all_lines later
 }
@@ -94,10 +94,15 @@ bool	check_wall_around(t_game *game)
 		j++;
 	}
 	j = 0;
+	i++;;
 	while (game->map[i][j])
 	{
-		if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
-			return (false);
+		while(game->map[i][j])
+		{
+			if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
+				return (false);
+			j++;
+		}
 		i++;
 	}
 	j = 0;
@@ -119,7 +124,6 @@ bool	check_wall_around(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game	*game;
-
 	// mlx_t	*mlx;
 	if (argc == 2)
 	{
