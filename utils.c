@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/04 16:25:38 by dpaluszk         ###   ########.fr       */
+/*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
+/*   Updated: 2024/08/04 16:20:53 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	error(void)
 {
-	t_game	*game;
-	// mlx_t	*mlx;
-	if (argc == 2)
-	{
-		game = ft_calloc(sizeof(t_game), 1);
-		struct_init_function(game);
-		read_map(argv[1], game);
-		check_wall_around(game);
-		//map_validation(game);
-	}
-	// mlx_loop(mlx);
-	// mlx_terminate(mlx);
-	return (0);
+	ft_printf("Error\n");
+	mlx_strerror(mlx_errno);
+	exit(EXIT_FAILURE);
+}
+
+void	struct_init_function(t_game *my_struct)
+{
+	my_struct->map = NULL;
+	my_struct->move_count = 0;
 }

@@ -6,12 +6,12 @@
 #    By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/28 13:38:21 by dpaluszk          #+#    #+#              #
-#    Updated: 2024/07/31 16:10:02 by dpaluszk         ###   ########.fr        #
+#    Updated: 2024/08/04 16:24:57 by dpaluszk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SRC = so_long.c flood_fill.c
+SRC = so_long.c flood_fill.c map_validation.c utils.c reading_map.c
 OBJECTS = $(SRC:.c=.o)
 FLAGS = -Wall -Wextra -Werror -g
 CC = cc
