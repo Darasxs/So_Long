@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/04 16:25:38 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/04 19:52:46 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_game	*game;
+
 	// mlx_t	*mlx;
 	if (argc == 2)
 	{
@@ -22,7 +23,8 @@ int	main(int argc, char **argv)
 		struct_init_function(game);
 		read_map(argv[1], game);
 		check_wall_around(game);
-		//map_validation(game);
+		check_collectibles(game);
+		// map_validation(game);
 	}
 	// mlx_loop(mlx);
 	// mlx_terminate(mlx);
