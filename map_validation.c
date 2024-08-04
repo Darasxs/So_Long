@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/04 19:54:18 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/04 20:05:30 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ bool	map_validation(t_game *game)
 	if (check_wall_around(game) == false)
 		return (false);
 	if (check_collectibles(game) == false)
+		return (false);
+	if (check_exit(game) == false)
 		return (false);
 	return (true);
 }
@@ -79,7 +81,6 @@ bool	check_collectibles(t_game *game)
 
 	collectible = 0;
 	i = 1;
-	j = 0;
 	while (game->map[i] && game->map[i + 1])
 	{
 		j = 1;
@@ -91,12 +92,32 @@ bool	check_collectibles(t_game *game)
 		}
 		i++;
 	}
-	printf("%zu", collectible);
 	if (collectible < 1)
-	{
-		printf("false");
 		return (false);
+	else
+		return (true);
+}
+bool	check_exit(t_game *game)
+{
+	size_t	i;
+	size_t	j;
+	size_t	exit_counter;
+
+	i = 1;
+	exit_counter = 0;
+	while (game->map[i] && game->map[i + 1])
+	{
+		j = 1;
+		while (game->map[i][j] && game->map[i][j + 1])
+		{
+			if (game->map[i][j] == 'E')
+				exit_counter++;
+			j++;
+		}
+		i++;
 	}
+	if (exit_counter != 1)
+		return (false);
 	else
 		return (true);
 }

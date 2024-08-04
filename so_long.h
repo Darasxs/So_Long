@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/04 19:52:56 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/04 20:01:03 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ bool	length_check(char *line, size_t first_line);
 void	struct_init_function(t_game *my_struct);
 bool	map_validation(t_game *game);
 bool	check_collectibles(t_game *game);
+bool	check_exit(t_game *game);
 
 #endif
