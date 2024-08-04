@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/07/31 17:11:32 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/04 15:02:46 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	read_map(char *map, t_game *game)
 }
 //bool	map_validation(t_game *game)
 //{
-	
+
 //}
 
 bool	check_wall_around(t_game *game)
@@ -90,17 +90,24 @@ bool	check_wall_around(t_game *game)
 	while (game->map[0][j])
 	{
 		if (game->map[0][j] != '1')
+		{
+			printf("false");
 			return (false);
+		}
 		j++;
 	}
 	j = 0;
-	i++;;
-	while (game->map[i][j])
+	i++;
+	while (game->map[i])
 	{
+		j = 0;
 		while(game->map[i][j])
 		{
 			if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
+			{
+				printf("false");
 				return (false);
+			}
 			j++;
 		}
 		i++;
@@ -110,7 +117,10 @@ bool	check_wall_around(t_game *game)
 	while (game->map[i][j])
 	{
 		if (game->map[i][j] != '1')
+		{
+			printf("false");
 			return (false);
+		}
 		j++;
 	}
 	return (true);
