@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 13:23:51 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:09:16 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	struct_init_function(t_game *my_struct)
 {
 	my_struct->map = NULL;
 	my_struct->move_count = 0;
+	my_struct->columns = 0;
+	my_struct->rows = 0;
+	my_struct->collectible = 0;
 	my_struct->exit = malloc(sizeof(*(my_struct->exit)) * 1);
 	if (my_struct->exit)
 	{
@@ -39,4 +42,11 @@ void	struct_init_function(t_game *my_struct)
 	}
 	else
 		my_struct->player = NULL;
+}
+
+bool	valid_char(char c)
+{
+	if (c != 'P' && c != 'E' && c != 'C' && c != '1' && c != '0')
+		return (false);
+	return (true);
 }

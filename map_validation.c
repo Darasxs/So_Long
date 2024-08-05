@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 13:23:56 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 20:00:13 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ bool	map_validation(t_game *game)
 	if (check_exit(game) == false)
 		return (false);
 	if (check_player(game) == false)
+		return (false);
+	if (check_characters(game) == false)
 		return (false);
 	return (true);
 }
@@ -77,11 +79,10 @@ bool	check_wall_around(t_game *game)
 
 bool	check_collectibles(t_game *game)
 {
-	size_t	collectible;
 	size_t	i;
 	size_t	j;
 
-	collectible = 0;
+	game->collectible = 0;
 	i = 1;
 	while (game->map[i] && game->map[i + 1])
 	{
@@ -89,12 +90,12 @@ bool	check_collectibles(t_game *game)
 		while (game->map[i][j] && game->map[i][j + 1])
 		{
 			if (game->map[i][j] == 'C')
-				collectible++;
+				game->collectible++;
 			j++;
 		}
 		i++;
 	}
-	if (collectible < 1)
+	if (game->collectible < 1)
 		return (false);
 	else
 		return (true);
@@ -127,15 +128,15 @@ bool	check_exit(t_game *game)
 	else
 		return (true);
 }
+
 bool	check_player(t_game *game)
 {
-	size_t i;
-	size_t j;
-	size_t player_counter;
+	size_t	i;
+	size_t	j;
+	size_t	player_counter;
 
 	i = 1;
 	player_counter = 0;
-
 	while (game->map[i] && game->map[i + 1])
 	{
 		j = 1;
@@ -155,4 +156,24 @@ bool	check_player(t_game *game)
 		return (false);
 	else
 		return (true);
+}
+
+bool	check_characters(t_game *game)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 1;
+	while (game->map[i] && game->map[i + 1])
+	{
+		j = 1;
+		while (game->map[i][j] && game->map[i][j + 1])
+		{
+			if (!valid_char(game->map[i][j]))
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
 }
