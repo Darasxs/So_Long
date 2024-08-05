@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 11:47:51 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:23:56 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ bool	map_validation(t_game *game)
 	if (check_collectibles(game) == false)
 		return (false);
 	if (check_exit(game) == false)
+		return (false);
+	if (check_player(game) == false)
 		return (false);
 	return (true);
 }
@@ -125,7 +127,32 @@ bool	check_exit(t_game *game)
 	else
 		return (true);
 }
-//bool	check_player(t_game *game)
-//{
-	
-//}
+bool	check_player(t_game *game)
+{
+	size_t i;
+	size_t j;
+	size_t player_counter;
+
+	i = 1;
+	player_counter = 0;
+
+	while (game->map[i] && game->map[i + 1])
+	{
+		j = 1;
+		while (game->map[i][j] && game->map[i][j + 1])
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->player->x = i;
+				game->player->y = j;
+				player_counter++;
+			}
+			j++;
+		}
+		i++;
+	}
+	if (player_counter != 1)
+		return (false);
+	else
+		return (true);
+}
