@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/04 20:05:30 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 09:48:30 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,11 @@ bool	check_exit(t_game *game)
 		while (game->map[i][j] && game->map[i][j + 1])
 		{
 			if (game->map[i][j] == 'E')
+			{
+				game->exit->x = i;
+				game->exit->y = j;
 				exit_counter++;
+			}
 			j++;
 		}
 		i++;

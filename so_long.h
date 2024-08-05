@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/04 20:01:03 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 09:43:16 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,20 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+typedef struct		s_position
+{
+	size_t	x;
+	size_t	y;
+}				t_position;
+
+
 typedef	struct	s_game
 {
-	mlx_t	*mlx;
-	char	**map;
-	int		move_count;
+	mlx_t		*mlx;
+	char		**map;
+	t_position	*exit;
+	t_position	*player;
+	int			move_count;
 }				t_game;
 
 void	error(void);
