@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 09:48:30 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:47:51 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,3 +125,7 @@ bool	check_exit(t_game *game)
 	else
 		return (true);
 }
+//bool	check_player(t_game *game)
+//{
+	
+//}
