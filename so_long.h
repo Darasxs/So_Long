@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 19:52:48 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:52:06 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,22 @@ typedef struct s_game
 {
 	mlx_t			*mlx;
 	char			**map;
-	t_position		*exit;
-	t_position		*player;
-	size_t			collectible;
+	t_position		*exit_position;
+	t_position		*player_position;
+	size_t			collectibles_number;
 	size_t			rows;
 	size_t			columns;
 	int				move_count;
-	mlx_texture_t	*exit;
-	mlx_texture_t	*player;
-	mlx_texture_t	*collectible;
-	mlx_texture_t	*wall;
-	mlx_texture_t	*background;
+	mlx_texture_t	*exit_texture;
+	mlx_texture_t	*player_texture;
+	mlx_texture_t	*collectible_texture;
+	mlx_texture_t	*wall_texture;
+	mlx_texture_t	*background_texture;
+	mlx_image_t		*exit_image;
+	mlx_image_t		*player_image;
+	mlx_image_t		*collectible_image;
+	mlx_image_t		*wall_image;
+	mlx_image_t		*background_image;
 }					t_game;
 
 void				error(void);
@@ -55,6 +60,7 @@ void				read_map(char *map, t_game *game);
 bool				check_wall_around(t_game *game);
 bool				length_check(char *line, size_t first_line);
 void				struct_init_function(t_game *my_struct);
+void				struct_init_2(t_game *my_struct);
 bool				map_validation(t_game *game);
 bool				check_collectibles(t_game *game);
 bool				check_exit(t_game *game);
@@ -63,7 +69,7 @@ bool				check_characters(t_game *game);
 bool				valid_char(char c);
 void				render_map(t_game *game);
 void				load_textures(t_game *game);
-void				clean_textures(t_game *game);
-mlx_image_t			texture_to_image(t_game *game, mlx_image_t *img);
+// void				clean_textures(t_game *game);
+mlx_image_t			*texture_to_image(t_game *game, char map_char);
 
 #endif

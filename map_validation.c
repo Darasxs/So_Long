@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 20:00:13 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/05 21:31:26 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ bool	check_collectibles(t_game *game)
 	size_t	i;
 	size_t	j;
 
-	game->collectible = 0;
 	i = 1;
 	while (game->map[i] && game->map[i + 1])
 	{
@@ -90,12 +89,12 @@ bool	check_collectibles(t_game *game)
 		while (game->map[i][j] && game->map[i][j + 1])
 		{
 			if (game->map[i][j] == 'C')
-				game->collectible++;
+				game->collectibles_number++;
 			j++;
 		}
 		i++;
 	}
-	if (game->collectible < 1)
+	if (game->collectibles_number < 1)
 		return (false);
 	else
 		return (true);
@@ -115,8 +114,8 @@ bool	check_exit(t_game *game)
 		{
 			if (game->map[i][j] == 'E')
 			{
-				game->exit->x = i;
-				game->exit->y = j;
+				game->exit_position->x = i;
+				game->exit_position->y = j;
 				exit_counter++;
 			}
 			j++;
@@ -144,8 +143,8 @@ bool	check_player(t_game *game)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				game->player->x = i;
-				game->player->y = j;
+				game->player_position->x= i;
+				game->player_position->y = j;
 				player_counter++;
 			}
 			j++;
