@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:18:42 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/06 12:21:32 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:15:59 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ mlx_image_t	*texture_to_image(t_game *game, char map_char)
 void	load_textures(t_game *game)
 {
 	game->exit_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/exit.png");
-	game->player_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/sea_monster.png");
-	game->collectible_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/fish.png");
+	game->player_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/player.png");
+	game->collectible_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/collectible.png");
 	game->wall_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/wall.png");
-	game->background_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/water.png");
+	game->background_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/background.png");
 
 	game->exit_image = mlx_texture_to_image(game->mlx, game->exit_texture);
     game->player_image = mlx_texture_to_image(game->mlx, game->player_texture);
