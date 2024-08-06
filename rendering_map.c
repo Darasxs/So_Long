@@ -6,16 +6,20 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:18:42 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/06 13:15:59 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:21:58 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// void	clean_textures(t_game *game)
-//{
-//	mlx_delete_texture();
-//}
+void	clean_textures(t_game *game)
+{
+	mlx_delete_texture(game->exit_texture);
+	mlx_delete_texture(game->player_texture);
+	mlx_delete_texture(game->wall_texture);
+	mlx_delete_texture(game->background_texture);
+	mlx_delete_texture(game->collectible_texture);
+}
 
 mlx_image_t	*texture_to_image(t_game *game, char map_char)
 {
@@ -68,4 +72,5 @@ void	render_map(t_game *game)
 		}
 		i++;
 	}
+	clean_textures(game);
 }

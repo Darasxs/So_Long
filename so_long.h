@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/06 12:28:38 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:20:43 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void				render_map(t_game *game);
 void				load_textures(t_game *game);
 // void				clean_textures(t_game *game);
 mlx_image_t			*texture_to_image(t_game *game, char map_char);
+void				clean_textures(t_game *game);
 
 #endif
