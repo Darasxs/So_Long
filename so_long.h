@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 17:46:59 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 22:44:39 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_game
 	mlx_image_t		*collectible_image;
 	mlx_image_t		*wall_image;
 	mlx_image_t		*background_image;
+	bool			exit_check;
 }					t_game;
 
 void				error(void);
@@ -73,4 +74,9 @@ bool				extension_check(char *map);
 void				player_movement(mlx_key_data_t key, void *param);
 void				player_movement(mlx_key_data_t key, void *param);
 void				render_textures(t_game *game);
+void				move_up(t_game *game);
+void				move_down(t_game *game);
+void				move_left(t_game *game);
+void				move_right(t_game *game);
+
 #endif
