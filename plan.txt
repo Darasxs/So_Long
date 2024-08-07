@@ -6,6 +6,4 @@ co musze jeszce zrobic:
 - collectibles musza znikac
 - sprawdzic czy mapa jest .ber
 - zrobic flood filla chuj wie po co
-- upewnic sie czy okno z mapa otwiera sie poprawnie
-
 
