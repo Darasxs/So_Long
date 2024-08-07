@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:18:42 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/06 13:21:58 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 13:46:34 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,20 @@ void	load_textures(t_game *game)
 	game->collectible_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/collectible.png");
 	game->wall_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/wall.png");
 	game->background_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/background.png");
-
 	game->exit_image = mlx_texture_to_image(game->mlx, game->exit_texture);
-    game->player_image = mlx_texture_to_image(game->mlx, game->player_texture);
-    game->collectible_image = mlx_texture_to_image(game->mlx, game->collectible_texture);
-    game->wall_image = mlx_texture_to_image(game->mlx, game->wall_texture);
-    game->background_image = mlx_texture_to_image(game->mlx, game->background_texture);
+	game->player_image = mlx_texture_to_image(game->mlx, game->player_texture);
+	game->collectible_image = mlx_texture_to_image(game->mlx,
+			game->collectible_texture);
+	game->wall_image = mlx_texture_to_image(game->mlx, game->wall_texture);
+	game->background_image = mlx_texture_to_image(game->mlx,
+			game->background_texture);
 }
 
 void	render_map(t_game *game)
 {
-	mlx_image_t *img;
-	size_t i;
-	size_t j;
+	mlx_image_t	*img;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	load_textures(game);
@@ -66,10 +67,11 @@ void	render_map(t_game *game)
 		while (game->map[i][j])
 		{
 			img = texture_to_image(game, game->map[i][j]);
-			if(img)
-                mlx_image_to_window(game->mlx, img, j * img->width, i * img->height);
+			if (img)
+				mlx_image_to_window(game->mlx, img, j * 50, i * 50);
 			j++;
 		}
+		ft_printf("%s\n", game->map[i]);
 		i++;
 	}
 	clean_textures(game);

@@ -6,15 +6,12 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/06 13:20:43 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 13:36:10 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# define WIDTH 1920
-# define HEIGHT 1080
 
 # include "./MLX42/include/MLX42/MLX42.h"
 # include "./ft_printf/ft_printf.h"
