@@ -6,13 +6,11 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/05 21:31:26 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 18:20:25 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// maybe i will creat map_validation_utils if there will be many functions for this
 
 bool	map_validation(t_game *game)
 {
