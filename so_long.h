@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 13:59:44 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:46:59 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_game
 	size_t			collectibles_number;
 	size_t			rows;
 	size_t			columns;
-	int				move_count;
+	size_t			move_count;
 	mlx_texture_t	*exit_texture;
 	mlx_texture_t	*player_texture;
 	mlx_texture_t	*collectible_texture;
@@ -70,4 +70,7 @@ void				load_textures(t_game *game);
 mlx_image_t			*texture_to_image(t_game *game, char map_char);
 void				clean_textures(t_game *game);
 bool				extension_check(char *map);
+void				player_movement(mlx_key_data_t key, void *param);
+void				player_movement(mlx_key_data_t key, void *param);
+void				render_textures(t_game *game);
 #endif

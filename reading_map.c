@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:22:33 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 13:52:02 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 15:49:07 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	read_map(char *map, t_game *game)
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("Error\n");
-		return ;
+		ft_printf("Error\nProblem with file descriptor.\n");
+		exit(1);
 	}
 	line = get_next_line(fd);
 	if (!line)

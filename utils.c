@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/06 11:51:47 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:22:15 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	struct_init_function(t_game *my_struct)
 	}
 	else
 		my_struct->exit_position = NULL;
-	my_struct->player_position = malloc(sizeof(*(my_struct->player_position)) * 1);
+	my_struct->player_position = malloc(sizeof(*(my_struct->player_position))
+			* 1);
 	if (my_struct->player_position)
 	{
 		my_struct->player_position->x = 0;
@@ -61,5 +62,25 @@ bool	valid_char(char c)
 {
 	if (c != 'P' && c != 'E' && c != 'C' && c != '1' && c != '0')
 		return (false);
+	return (true);
+}
+
+bool	extension_check(char *map)
+{
+	size_t		len;
+	const char	*ext;
+
+	ext = ".ber";
+	len = ft_strlen(map);
+	if (len < ft_strlen(ext))
+	{
+		ft_printf("Wrong map extension\n");
+		return (false);
+	}
+	if (!ft_strnstr(map + len - ft_strlen(ext), ext, ft_strlen(ext)))
+	{
+		ft_printf("Wrong map extension\n");
+		return (false);
+	}
 	return (true);
 }

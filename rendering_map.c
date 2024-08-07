@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:18:42 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 13:46:34 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:46:44 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void	load_textures(t_game *game)
 	game->collectible_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/collectible.png");
 	game->wall_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/wall.png");
 	game->background_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/background.png");
+}
+
+void	render_textures(t_game *game)
+{
 	game->exit_image = mlx_texture_to_image(game->mlx, game->exit_texture);
 	game->player_image = mlx_texture_to_image(game->mlx, game->player_texture);
 	game->collectible_image = mlx_texture_to_image(game->mlx,
@@ -61,6 +65,7 @@ void	render_map(t_game *game)
 
 	i = 0;
 	load_textures(game);
+	render_textures(game);
 	while (game->map[i])
 	{
 		j = 0;
