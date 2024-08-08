@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 22:33:44 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 19:41:39 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ void	struct_init_2(t_game *my_struct)
 	my_struct->collectible_image = NULL;
 	my_struct->wall_image = NULL;
 	my_struct->background_image = NULL;
+	my_struct->flood_fill_c = 0;
+	my_struct->flood_fill_e = 0;
+	my_struct->flood_fill_p = 0;
 }
 
 bool	valid_char(char c)

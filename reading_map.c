@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:22:33 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 12:14:13 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 19:38:05 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	read_map(char *map, t_game *game)
 	if (!line)
 	{
 		close(fd);
-		return ;
+		exit(EXIT_SUCCESS) ;
 	}
 	line_len = ft_strlen(line) - 1;
 	game->columns = line_len;
@@ -63,5 +63,6 @@ void	read_map(char *map, t_game *game)
 	close(fd);
 	game->rows = rows;
 	game->map = ft_split(all_lines, '\n');
+	game->map_copy = game->map;
 	// remember to free all_lines later
 }

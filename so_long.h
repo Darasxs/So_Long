@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 12:18:41 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 19:39:16 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_game
 {
 	mlx_t			*mlx;
 	char			**map;
+	char			**map_copy;
 	t_position		*exit_position;
 	t_position		*player_position;
 	size_t			collectibles_number;
@@ -50,7 +51,9 @@ typedef struct s_game
 	mlx_image_t		*collectible_image;
 	mlx_image_t		*wall_image;
 	mlx_image_t		*background_image;
-	bool			exit_check;
+	size_t			flood_fill_c;
+	size_t			flood_fill_p;
+	size_t			flood_fill_e;
 }					t_game;
 
 void				error(void);
@@ -67,7 +70,7 @@ bool				check_characters(t_game *game);
 bool				valid_char(char c);
 void				render_map(t_game *game);
 void				load_textures(t_game *game);
-// void				clean_textures(t_game *game);
+void				clean_textures(t_game *game);
 mlx_image_t			*texture_to_image(t_game *game, char map_char);
 void				clean_textures(t_game *game);
 bool				extension_check(char *map);
@@ -78,5 +81,7 @@ void				move_up(t_game *game);
 void				move_down(t_game *game);
 void				move_left(t_game *game);
 void				move_right(t_game *game);
+void   				flood_fill(char **map, t_game *game, int x, int y);
+
 
 #endif

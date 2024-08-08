@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 17:47:03 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 19:40:33 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	main(int argc, char **argv)
 		if (!extension_check(argv[1]))
 			return (0);
 		read_map(argv[1], game);
-		//if (!game->map)
-		//	error();
 		map_validation(game);
+		ft_flood_fill(game->map, game, 1, 1);
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
 		mlx = mlx_init(50 * game->columns, 50 * game->rows, "so_long", true);
 		game->mlx = mlx;

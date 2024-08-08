@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 12:22:55 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:28:02 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,31 @@ void	map_validation(t_game *game)
 {
 	if (check_wall_around(game) == false)
 	{
-		ft_printf("Error\nThe wall does not surround the map completely.\n");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	if (check_collectibles(game) == false)
 	{
-		ft_printf("Error\nThere should be at least 1 collectible on the map.\n");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	if (check_exit(game) == false)
 	{
-		ft_printf("Error\nThe number of exits should be one.\n");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	if (check_player(game) == false)
 	{
-		ft_printf("Error\nThere should be only one player.\n");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	if (check_characters(game) == false)
 	{
-		ft_printf("Error\nThere are forbidden characters on the map.\n");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 }
 
-// still need to split this funtion, it's too long
 bool	check_wall_around(t_game *game)
 {
 	size_t	i;
@@ -54,10 +53,7 @@ bool	check_wall_around(t_game *game)
 	while (game->map[0][j])
 	{
 		if (game->map[0][j] != '1')
-		{
-			printf("false");
 			return (false);
-		}
 		j++;
 	}
 	i++;
@@ -67,10 +63,7 @@ bool	check_wall_around(t_game *game)
 		while (game->map[i][j])
 		{
 			if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
-			{
-				printf("false");
 				return (false);
-			}
 			j++;
 		}
 		i++;
@@ -80,10 +73,7 @@ bool	check_wall_around(t_game *game)
 	while (game->map[i][j])
 	{
 		if (game->map[i][j] != '1')
-		{
-			printf("false");
 			return (false);
-		}
 		j++;
 	}
 	return (true);

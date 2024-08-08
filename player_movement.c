@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:21:36 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 13:08:14 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:25:03 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	move_up(t_game *game)
 			game->player_position->y * 50, game->player_position->x * 50);
 		game->map[game->player_position->x][game->player_position->y] = '0';
 	}
-	ft_printf("collectible number:%d\n", game->collectibles_number);
 	mlx_image_to_window(game->mlx, game->player_image, game->player_position->y
 		* 50, game->player_position->x * 50);
 	game->move_count++;
@@ -59,7 +58,6 @@ void	move_down(t_game *game)
 			game->player_position->y * 50, game->player_position->x * 50);
 		game->map[game->player_position->x][game->player_position->y] = '0';
 	}
-	ft_printf("collectible number:%d\n", game->collectibles_number);
 	mlx_image_to_window(game->mlx, game->player_image, game->player_position->y
 		* 50, game->player_position->x * 50);
 	game->move_count++;
@@ -85,7 +83,6 @@ void	move_left(t_game *game)
 			game->player_position->y * 50, game->player_position->x * 50);
 		game->map[game->player_position->x][game->player_position->y] = '0';
 	}
-	ft_printf("collectible number:%d\n", game->collectibles_number);
 	mlx_image_to_window(game->mlx, game->player_image, game->player_position->y
 		* 50, game->player_position->x * 50);
 	game->move_count++;
@@ -111,7 +108,6 @@ void	move_right(t_game *game)
 			game->player_position->y * 50, game->player_position->x * 50);
 		game->map[game->player_position->x][game->player_position->y] = '0';
 	}
-	ft_printf("collectible number:%d\n", game->collectibles_number);
 	mlx_image_to_window(game->mlx, game->player_image, game->player_position->y
 		* 50, game->player_position->x * 50);
 	game->move_count++;
