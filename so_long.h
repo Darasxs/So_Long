@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 10:53:47 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 12:18:41 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool				check_wall_around(t_game *game);
 bool				length_check(char *line, size_t first_line);
 void				struct_init_function(t_game *my_struct);
 void				struct_init_2(t_game *my_struct);
-bool				map_validation(t_game *game);
+void				map_validation(t_game *game);
 bool				check_collectibles(t_game *game);
 bool				check_exit(t_game *game);
 bool				check_player(t_game *game);

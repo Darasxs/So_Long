@@ -6,25 +6,39 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 18:20:25 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 12:22:55 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-bool	map_validation(t_game *game)
+void	map_validation(t_game *game)
 {
 	if (check_wall_around(game) == false)
-		return (false);
+	{
+		ft_printf("Error\nThe wall does not surround the map completely.\n");
+		exit(EXIT_FAILURE);
+	}
 	if (check_collectibles(game) == false)
-		return (false);
+	{
+		ft_printf("Error\nThere should be at least 1 collectible on the map.\n");
+		exit(EXIT_FAILURE);
+	}
 	if (check_exit(game) == false)
-		return (false);
+	{
+		ft_printf("Error\nThe number of exits should be one.\n");
+		exit(EXIT_FAILURE);
+	}
 	if (check_player(game) == false)
-		return (false);
+	{
+		ft_printf("Error\nThere should be only one player.\n");
+		exit(EXIT_FAILURE);
+	}
 	if (check_characters(game) == false)
-		return (false);
-	return (true);
+	{
+		ft_printf("Error\nThere are forbidden characters on the map.\n");
+		exit(EXIT_FAILURE);
+	}
 }
 
 // still need to split this funtion, it's too long
@@ -141,7 +155,7 @@ bool	check_player(t_game *game)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				game->player_position->x= i;
+				game->player_position->x = i;
 				game->player_position->y = j;
 				player_counter++;
 			}

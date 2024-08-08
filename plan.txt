@@ -1,9 +1,0 @@
-co musze jeszce zrobic:
-
-- player musi sie poruszac
-- licznik poruszania
-- musi zjadac collectibles
-- collectibles musza znikac
-- sprawdzic czy mapa jest .ber
-- zrobic flood filla chuj wie po co
-

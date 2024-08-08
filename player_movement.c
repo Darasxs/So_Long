@@ -6,13 +6,11 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:21:36 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 10:55:20 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 12:12:53 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	m
 
 void	move_up(t_game *game)
 {
