@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:18:42 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/07 18:17:36 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 12:39:32 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	render_map(t_game *game)
 				mlx_image_to_window(game->mlx, img, j * 50, i * 50);
 			j++;
 		}
-		ft_printf("%s\n", game->map[i]);
 		i++;
 	}
 	clean_textures(game);
