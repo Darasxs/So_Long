@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 21:35:25 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/08 23:49:07 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 			return (0);
 		read_map(argv[1], game);
 		map_validation(game);
-		flood_fill(game->map_copy, game, game->player_position->x, game->player_position->y);
+		flood_fill(game->map_copy, game);
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
 		mlx = mlx_init(50 * game->columns, 50 * game->rows, "so_long", true);
 		game->mlx = mlx;
