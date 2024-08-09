@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 23:50:14 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/09 13:24:08 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ void				move_up(t_game *game);
 void				move_down(t_game *game);
 void				move_left(t_game *game);
 void				move_right(t_game *game);
-void				fill(char **map, t_game *game, int x, int y, int max_x,
-						int max_y);
+void				fill(char **map, t_game *game, int x, int y);
 void				flood_fill(char **map, t_game *game);
 
 #endif
