@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 19:59:47 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 13:30:59 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/09 18:15:21 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	fill(char **map, t_game *game, int x, int y)
 void	flood_fill(char **map, t_game *game)
 {
 	fill(map, game, game->player_position->x, game->player_position->y);
-
 	if (game->flood_fill_c != game->collectibles_number || game->flood_fill_e != 1 || game->flood_fill_p != 1)
 	{
 		ft_printf("Error\nFlood fill");

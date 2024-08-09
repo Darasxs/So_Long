@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 23:49:18 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:22:37 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,15 @@
 void	map_validation(t_game *game)
 {
 	if (check_wall_around(game) == false)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error(game);
 	if (check_collectibles(game) == false)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error(game);
 	if (check_exit(game) == false)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error(game);
 	if (check_player(game) == false)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error(game);
 	if (check_characters(game) == false)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error(game);
 }
 
 bool	check_wall_around(t_game *game)

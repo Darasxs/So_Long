@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:21:36 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 17:25:03 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:31:29 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_up(t_game *game)
 {
 	if (game->map[game->player_position->x - 1][game->player_position->y] == 'E'
 		&& game->collectibles_number == 0)
-		exit(EXIT_SUCCESS);
+			free_map(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 	{
 		mlx_image_to_window(game->mlx, game->exit_image,
@@ -43,7 +43,7 @@ void	move_down(t_game *game)
 {
 	if (game->map[game->player_position->x + 1][game->player_position->y] == 'E'
 		&& game->collectibles_number == 0)
-		exit(EXIT_SUCCESS);
+			free_map(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 		mlx_image_to_window(game->mlx, game->exit_image,
 			game->player_position->y * 50, game->player_position->x * 50);
@@ -68,7 +68,7 @@ void	move_left(t_game *game)
 {
 	if (game->map[game->player_position->x][game->player_position->y + 1] == 'E'
 		&& game->collectibles_number == 0)
-		exit(EXIT_SUCCESS);
+			free_map(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 		mlx_image_to_window(game->mlx, game->exit_image,
 			game->player_position->y * 50, game->player_position->x * 50);
@@ -93,7 +93,7 @@ void	move_right(t_game *game)
 {
 	if (game->map[game->player_position->x][game->player_position->y - 1] == 'E'
 		&& game->collectibles_number == 0)
-		exit(EXIT_SUCCESS);
+			free_map(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 		mlx_image_to_window(game->mlx, game->exit_image,
 			game->player_position->y * 50, game->player_position->x * 50);
@@ -124,10 +124,7 @@ void	player_movement(mlx_key_data_t key, void *param)
 	x = game->player_position->x;
 	y = game->player_position->y;
 	if (key.key == MLX_KEY_ESCAPE && key.action == MLX_PRESS)
-	{
-		// free
-		exit(0);
-	}
+		free_map(game);
 	else if (key.key == MLX_KEY_W && key.action == MLX_PRESS && game->map[x
 		- 1][y] != '1')
 		move_up(game);

@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 13:24:08 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:26:41 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ typedef struct s_game
 	size_t			flood_fill_e;
 }					t_game;
 
-void				error(void);
+void				error(t_game *game);
+void				free_map(t_game *game);
 void				read_map(char *map, t_game *game);
 bool				check_wall_around(t_game *game);
 bool				length_check(char *line, size_t first_line);

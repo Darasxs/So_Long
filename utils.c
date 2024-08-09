@@ -6,17 +6,73 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 19:41:39 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:43:26 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error(void)
+void	error(t_game *game)
 {
+	size_t	i;
+
+	i = 0;
 	ft_printf("Error\n");
-	mlx_strerror(mlx_errno);
+	if(game->map)
+	{	
+		while(game->map[i])
+		{
+			free(game->map[i]);
+			game->map[i] = NULL;
+			i++;
+		}
+		free(game->map);
+		game->map = NULL;
+	}
+	i = 0;
+	if(game->map_copy)
+	{	
+		while(game->map_copy[i])
+		{
+			free(game->map_copy[i]);
+			game->map_copy[i] = NULL;
+			i++;
+		}
+		free(game->map_copy);
+		game->map_copy = NULL;
+	}
 	exit(EXIT_FAILURE);
+}
+
+void	free_map(t_game *game)
+{
+	size_t	i;
+
+	i = 0;
+	if(game->map)
+	{	
+		while(game->map[i])
+		{
+			free(game->map[i]);
+			game->map[i] = NULL;
+			i++;
+		}
+		free(game->map);
+		game->map = NULL;
+	}
+	i = 0;
+	if(game->map_copy)
+	{	
+		while(game->map_copy[i])
+		{
+			free(game->map_copy[i]);
+			game->map_copy[i] = NULL;
+			i++;
+		}
+		free(game->map_copy);
+		game->map_copy = NULL;
+	}
+	exit(EXIT_SUCCESS);
 }
 
 void	struct_init_function(t_game *my_struct)
@@ -77,12 +133,12 @@ bool	extension_check(char *map)
 	len = ft_strlen(map);
 	if (len < ft_strlen(ext))
 	{
-		ft_printf("Wrong map extension\n");
+		ft_printf("Error\nWrong map extension\n");
 		return (false);
 	}
 	if (!ft_strnstr(map + len - ft_strlen(ext), ext, ft_strlen(ext)))
 	{
-		ft_printf("Wrong map extension\n");
+		ft_printf("Error\nWrong map extension\n");
 		return (false);
 	}
 	return (true);
