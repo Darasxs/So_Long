@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 14:43:26 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:21:16 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,18 @@ void	error(t_game *game)
 
 	i = 0;
 	ft_printf("Error\n");
-	if(game->map)
-	{	
-		while(game->map[i])
-		{
-			free(game->map[i]);
-			game->map[i] = NULL;
-			i++;
-		}
+	if (game->map)
+	{
+		while (game->map[i])
+			free(game->map[i++]);
 		free(game->map);
 		game->map = NULL;
 	}
 	i = 0;
-	if(game->map_copy)
-	{	
-		while(game->map_copy[i])
-		{
-			free(game->map_copy[i]);
-			game->map_copy[i] = NULL;
-			i++;
-		}
+	if (game->map_copy)
+	{
+		while (game->map_copy[i])
+			free(game->map_copy[i++]);
 		free(game->map_copy);
 		game->map_copy = NULL;
 	}
@@ -49,26 +41,18 @@ void	free_map(t_game *game)
 	size_t	i;
 
 	i = 0;
-	if(game->map)
-	{	
-		while(game->map[i])
-		{
-			free(game->map[i]);
-			game->map[i] = NULL;
-			i++;
-		}
+	if (game->map)
+	{
+		while (game->map[i])
+			free(game->map[i++]);
 		free(game->map);
 		game->map = NULL;
 	}
 	i = 0;
-	if(game->map_copy)
-	{	
-		while(game->map_copy[i])
-		{
-			free(game->map_copy[i]);
-			game->map_copy[i] = NULL;
-			i++;
-		}
+	if (game->map_copy)
+	{
+		while (game->map_copy[i])
+			free(game->map_copy[i++]);
 		free(game->map_copy);
 		game->map_copy = NULL;
 	}
@@ -80,7 +64,7 @@ void	struct_init_function(t_game *my_struct)
 	my_struct->map = NULL;
 	my_struct->move_count = 0;
 	my_struct->columns = 0;
-	my_struct->rows = 0;
+	my_struct->rows = 1;
 	my_struct->collectibles_number = 0;
 	my_struct->exit_position = malloc(sizeof(*(my_struct->exit_position)) * 1);
 	if (my_struct->exit_position)
@@ -100,6 +84,7 @@ void	struct_init_function(t_game *my_struct)
 	else
 		my_struct->player_position = NULL;
 }
+
 void	struct_init_2(t_game *my_struct)
 {
 	my_struct->exit_texture = NULL;

@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 14:26:41 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:21:34 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void				error(t_game *game);
 void				free_map(t_game *game);
 void				read_map(char *map, t_game *game);
 bool				check_wall_around(t_game *game);
+bool				check_top_wall(t_game *game);
+bool				check_bottom_wall(t_game *game);
+bool				check_side_walls(t_game *game);
 bool				length_check(char *line, size_t first_line);
 void				struct_init_function(t_game *my_struct);
 void				struct_init_2(t_game *my_struct);
