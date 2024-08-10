@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/10 12:21:16 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:35:24 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,31 @@ void	free_map(t_game *game)
 	}
 	exit(EXIT_SUCCESS);
 }
+void	game_success(t_game *game)
+{
+	size_t	i;
+
+	i = 0;
+	if (game->map)
+	{
+		while (game->map[i])
+			free(game->map[i++]);
+		free(game->map);
+		game->map = NULL;
+	}
+	i = 0;
+	if (game->map_copy)
+	{
+		while (game->map_copy[i])
+			free(game->map_copy[i++]);
+		free(game->map_copy);
+		game->map_copy = NULL;
+	}
+	game->move_count++;
+	ft_printf("Move count:%d\n", game->move_count);
+	exit(EXIT_SUCCESS);
+}
+
 
 void	struct_init_function(t_game *my_struct)
 {

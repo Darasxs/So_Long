@@ -5,9 +5,9 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "lldb",
       "request": "launch",
-      "args": ["maps/just_a_map.ber"],
+      "args": [],
       "cwd": "/Users/dpaluszk/Documents/projects/so_long",
-      "program": "/Users/dpaluszk/Documents/projects/so_long/so_long"
+      "program": "/Users/dpaluszk/Documents/projects/so_long/build/Debug/outDebug"
     }
   ]
 }

@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 14:31:38 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:29:36 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,5 @@ int	main(int argc, char **argv)
 		ft_printf("Wrong number of arguments");
 	return (0);
 }
+
+//ostatni ruch sie nei nalicza

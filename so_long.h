@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 13:47:48 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/10 12:21:34 by dpaluszk         ###   ########.fr       */
+/*   Created: 2024/08/10 12:23:44 by dpaluszk          #+#    #+#             */
+/*   Updated: 2024/08/10 12:36:11 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "./MLX42/include/MLX42/MLX42.h"
 # include "./ft_printf/ft_printf.h"
@@ -87,5 +87,5 @@ void				move_left(t_game *game);
 void				move_right(t_game *game);
 void				fill(char **map, t_game *game, int x, int y);
 void				flood_fill(char **map, t_game *game);
-
+void				game_success(t_game *game);
 #endif

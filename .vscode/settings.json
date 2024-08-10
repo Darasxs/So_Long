@@ -1,14 +1,4 @@
 {
-  "files.associations": {
-    "mlx42_int.h": "c",
-    "so_long.h": "c",
-    "stdlib.h": "c",
-    "get_next_line.h": "c",
-    "ft_printf.h": "c",
-    "libft.h": "c",
-    "__node_handle": "c",
-    "__locale": "c"
-  },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
   "C_Cpp_Runner.debuggerPath": "lldb",

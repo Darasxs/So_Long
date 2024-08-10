@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:21:36 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 14:31:29 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:35:43 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_up(t_game *game)
 {
 	if (game->map[game->player_position->x - 1][game->player_position->y] == 'E'
 		&& game->collectibles_number == 0)
-			free_map(game);
+			game_success(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 	{
 		mlx_image_to_window(game->mlx, game->exit_image,
@@ -43,7 +43,7 @@ void	move_down(t_game *game)
 {
 	if (game->map[game->player_position->x + 1][game->player_position->y] == 'E'
 		&& game->collectibles_number == 0)
-			free_map(game);
+			game_success(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 		mlx_image_to_window(game->mlx, game->exit_image,
 			game->player_position->y * 50, game->player_position->x * 50);
@@ -68,7 +68,7 @@ void	move_left(t_game *game)
 {
 	if (game->map[game->player_position->x][game->player_position->y + 1] == 'E'
 		&& game->collectibles_number == 0)
-			free_map(game);
+			game_success(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 		mlx_image_to_window(game->mlx, game->exit_image,
 			game->player_position->y * 50, game->player_position->x * 50);
@@ -93,7 +93,7 @@ void	move_right(t_game *game)
 {
 	if (game->map[game->player_position->x][game->player_position->y - 1] == 'E'
 		&& game->collectibles_number == 0)
-			free_map(game);
+			game_success(game);
 	if (game->map[game->player_position->x][game->player_position->y] == 'E')
 		mlx_image_to_window(game->mlx, game->exit_image,
 			game->player_position->y * 50, game->player_position->x * 50);
