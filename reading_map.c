@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:22:33 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/10 12:28:26 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 13:44:33 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ bool	length_check(char *line, size_t first_line)
 		return (false);
 	return (true);
 }
+
 void	start_reading(char *map, t_game *game, int *fd, char **all_lines)
 {
 	char	*line;
@@ -47,9 +48,11 @@ void	continue_reading(t_game *game, int fd, char **all_lines)
 	char	*line;
 	char	*tmp;
 
-	line = NULL;
-	while ((line = get_next_line(fd)) != NULL)
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
 		tmp = ft_strjoin(*all_lines, line);
 		free(*all_lines);
 		free(line);

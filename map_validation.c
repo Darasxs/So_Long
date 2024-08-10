@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:23:11 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/09 19:02:13 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 13:38:18 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ bool	check_collectibles(t_game *game)
 	else
 		return (true);
 }
+
 bool	check_exit(t_game *game)
 {
 	size_t	i;

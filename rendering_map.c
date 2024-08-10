@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:18:42 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/08 12:39:32 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 13:47:59 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ mlx_image_t	*texture_to_image(t_game *game, char map_char)
 
 void	load_textures(t_game *game)
 {
-	game->exit_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/exit.png");
-	game->player_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/player.png");
-	game->collectible_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/collectible.png");
-	game->wall_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/wall.png");
-	game->background_texture = mlx_load_png("/Users/dpaluszk/Documents/projects/so_long/images/background.png");
+	game->exit_texture = mlx_load_png("images/exit.png");
+	game->player_texture = mlx_load_png("images/player.png");
+	game->collectible_texture = mlx_load_png("images/collectible.png");
+	game->wall_texture = mlx_load_png("images/wall.png");
+	game->background_texture = mlx_load_png("images/background.png");
 }
 
 void	render_textures(t_game *game)

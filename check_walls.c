@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:02:22 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/10 10:53:26 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/10 13:37:35 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	check_bottom_wall(t_game *game)
 	size_t	i;
 
 	i = 0;
-	while(game->map[i + 1] == NULL)
+	while (game->map[i + 1] == NULL)
 		i++;
 	j = 0;
 	while (game->map[i][j])
