@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 19:59:47 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/14 13:08:35 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/14 13:12:05 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	fill(char **map, t_game *game, int x, int y)
 {
-	if (x < 0 || y < 0 || (size_t)x >= game->rows || (size_t)y >= game->columns || map[x][y] == '1')
+	if (x < 0 || y < 0 || (size_t)x >= game->rows || (size_t)y >= game->columns
+		|| map[x][y] == '1')
 		return ;
 	if (map[x][y] == 'C')
 		game->flood_fill_c++;

@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 16:19:54 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/14 13:06:30 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/14 13:12:05 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	error(t_game *game)
 		free(game->map_copy);
 		game->map_copy = NULL;
 	}
-	if(game->exit_position)
+	if (game->exit_position)
 		free(game->exit_position);
-	if(game->player_position)
+	if (game->player_position)
 		free(game->player_position);
 	exit(EXIT_FAILURE);
 }
@@ -60,9 +60,9 @@ void	free_map(t_game *game)
 		free(game->map_copy);
 		game->map_copy = NULL;
 	}
-	if(game->exit_position)
+	if (game->exit_position)
 		free(game->exit_position);
-	if(game->player_position)
+	if (game->player_position)
 		free(game->player_position);
 	exit(EXIT_SUCCESS);
 }
@@ -88,9 +88,9 @@ void	game_success(t_game *game)
 		game->map_copy = NULL;
 	}
 	game->move_count++;
-	if(game->exit_position)
+	if (game->exit_position)
 		free(game->exit_position);
-	if(game->player_position)
+	if (game->player_position)
 		free(game->player_position);
 	ft_printf("Move count:%d\n", game->move_count);
 	exit(EXIT_SUCCESS);
