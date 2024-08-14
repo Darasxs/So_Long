@@ -6,17 +6,27 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:47:45 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/08/10 22:03:59 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/08/14 13:07:18 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	leaks_func(void)
+{
+	char	command[256];
+
+	pid_t pid = getpid();              // Get the current process ID
+	sprintf(command, "leaks %d", pid); // Prepare the command string
+	system(command);                   // Execute the command
+}
 
 int	main(int argc, char **argv)
 {
 	t_game	*game;
 	mlx_t	*mlx;
 
+	atexit(leaks_func);
 	if (argc == 2)
 	{
 		game = ft_calloc(sizeof(t_game), 1);
